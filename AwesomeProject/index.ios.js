@@ -4,18 +4,8 @@
  * Step 3: Register main component
  */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
-class Info extends Component {
-    render() {
-        return (
-            <View style={style.container}>
-                <Text style={style.title}>{this.props.title}</Text>
-                <Text style={style.subTitle}>{this.props.subTitle}</Text>
-            </View>
-        );
-    }
-}
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Info from './components/Info';
 
 export default class HelloWorld extends Component {
     componentWillMount() {
@@ -25,29 +15,50 @@ export default class HelloWorld extends Component {
     render() {
         return(
             <View style={style.container}>
-                {/* <Gretting name='Bao'/>
-                <Gretting name='Nguyen'/> */}
+                <View style={style.row}>
+                    
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                </View>
                 <View style={style.row}>
                     <View style={style.column}>
                         <Info title='1' subTitle='abc'/>
                     </View>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                    <Info title='1' subTitle='abc'/>
+                    </View>
                 </View>
                 <View style={style.row}>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                    <Info title='1' subTitle='abc'/>
+                    </View>
                 </View>
                 <View style={style.row}>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
-                </View>
-                <View style={style.row}>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
-                    <View style={style.column}></View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
+                    <View style={style.column}>
+                        <Info title='1' subTitle='abc'/>
+                    </View>
                 </View>
             </View>
         );
@@ -70,15 +81,7 @@ var style = StyleSheet.create({
     },
     column: {
         flex: 1,
-        backgroundColor: 'gray',
         borderRightColor: 'lightgray',
-        borderWidth: 1,
-    },
-    title: {
-        flex: 2,
-        textAlign:'center',
-    },
-    subTitle: {
-        flex: 1
+        borderWidth: 1
     }
 });
