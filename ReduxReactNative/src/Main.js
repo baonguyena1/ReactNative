@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
+// import ShowText from './components/ShowText';
 import Child from './components/Child';
 import ButtonComp from './components/Button';
+import * as actions from './actions';
+import {connect} from 'react-redux';
 
 class Main extends Component {
+    handleIncrease = () => {
+        this.props.counterIncrease();
+    };
+
+    handleDecrease = () => {
+        this.props.counterDecrease();
+    };
 
     render() {
         return (
@@ -11,7 +21,8 @@ class Main extends Component {
                 flex: 1,
                 width: '100%',
                 justifyContent: 'center'
-            }}>
+            }}
+            >
                 <View style={{
                     flex: 1,
                     justifyContent:"center",
@@ -19,27 +30,29 @@ class Main extends Component {
                 }}>
                     <Child/>
                 </View>
-                <View style={{flex: 1}}>
-                    <ButtonComp title="Increase"
-                        textColor="#fff"
+                <View style = {{flex:1}}>
+                    <ButtonComp
+                        title="Increase"
+                        textColor="#000"
                         bgColor="#397af8"
-                        onPress={() =>{}}/>
-                    <ButtonComp 
+                        onPress={this.handleIncrease}/>
+                    <ButtonComp
                         title="Decrease"
                         bgColor="orange"
-                        onPress={() =>{}}/>
+                        onPress={this.handleDecrease}/>
                 </View>
+
             </View>
         )
     }
 }
 
-export default Main;
+export default connect(null, actions)(Main);
 
 const styles = StyleSheet.create({
     text: {
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: 'red'
     },
     btnStyle: {
@@ -47,7 +60,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor: 'red',
-        backgroundColor: '#15c'
-    }
-})
+        borderColor: "red",
+        backgroundColor: "#15c"
+    },
+});
